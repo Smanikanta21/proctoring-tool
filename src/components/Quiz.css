@@ -1,0 +1,232 @@
+.question-map {
+  padding: 20px 23px;
+  margin-bottom: 20px;
+}
+.question-map .section-heading h2 {
+  font-size: 13px;
+}
+.question-map .section-heading p {
+  font-size: 10px;
+}
+.question-map-bottom {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.question-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.question-number {
+  position: relative;
+  border: 1px solid #e6e9ed;
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  color: #9ba3ad;
+  background: #fafbfc;
+  font-size: 11px;
+}
+.question-number.saved {
+  background: #edf5f0;
+  color: #5d9075;
+  border-color: #dcece2;
+}
+.question-number.current {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: #fcf3ef;
+  box-shadow: 0 0 0 2px #bc57390a;
+}
+.question-number.marked > span {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d4b077;
+  border: 1px solid #fff;
+}
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 8px;
+  color: #a7afb7;
+}
+.map-legend > span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.map-legend i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: #e7ebef;
+}
+.map-legend .legend-saved {
+  background: #9abcaa;
+}
+.map-legend .legend-marked {
+  background: #d6ba8a;
+}
+.quiz-container {
+  padding: 28px;
+}
+.question-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+.question-top > .eyebrow {
+  color: #af856f;
+  font-size: 9px;
+}
+.question-top .muted {
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-left: 4px;
+  color: #bdc3c9;
+}
+.question-text {
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  line-height: 1.55;
+}
+.question-instruction {
+  color: #697581;
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 10px 0 25px;
+}
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.option-btn {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 14px;
+  border: 1px solid #e5e9ed;
+  border-radius: 7px;
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #626e7a;
+  background: #fff;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+.option-btn:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #c6cdd5;
+}
+.option-btn.selected {
+  border-color: #cf947e;
+  background: #fcf5f1;
+  color: #a46d57;
+}
+.option-letter {
+  display: grid;
+  place-items: center;
+  border: 1px solid #e9edf1;
+  border-radius: 5px;
+  width: 29px;
+  height: 29px;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #9ea8b1;
+  background: #fafbfc;
+}
+.option-btn.selected .option-letter {
+  background: #f5e4da;
+  border-color: #f0dace;
+  color: #b97f66;
+}
+.option-radio {
+  display: grid;
+  place-items: center;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #d8dee4;
+  border-radius: 50%;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.selected .option-radio {
+  border-color: #ba785c;
+}
+.option-radio > span {
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background: #bc795d;
+}
+.answer-tools {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 27px;
+}
+.answer-tools .text-button {
+  font-size: 10px;
+  font-weight: 500;
+}
+.answer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  color: #9eaaa5;
+}
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  border-top: 1px solid #edf0f3;
+  padding-top: 22px;
+}
+.submission-counts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+  margin: 25px 0;
+  padding: 22px 0;
+  border-block: 1px solid var(--border);
+}
+.submission-counts strong {
+  display: block;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.submission-counts span {
+  font-size: 10px;
+  color: #8e98a1;
+}
+@media (max-width: 640px) {
+  .quiz-container {
+    padding: 22px 18px;
+  }
+  .question-text {
+    font-size: 19px;
+  }
+  .question-map {
+    padding: 18px;
+  }
+}

@@ -1,0 +1,43 @@
+.activity-list {
+  margin-top: 20px;
+}
+
+.activity-entry {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  padding: 15px 0;
+  border-top: 1px solid var(--border);
+}
+
+.activity-entry > div {
+  flex: 1;
+}
+
+.activity-entry strong {
+  font-size: 12px;
+  font-weight: 550;
+  display: block;
+}
+
+.activity-entry div > span {
+  display: block;
+  font-size: 10px;
+  color: #a1a9b1;
+  margin-top: 5px;
+}
+
+.activity-icon {
+  height: 34px;
+  width: 34px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: #7f9c8a;
+  background: #f0f6f2;
+}
+
+.activity-icon.attention {
+  color: #b5905f;
+  background: #fbf5e9;
+}

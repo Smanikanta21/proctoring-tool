@@ -1,0 +1,104 @@
+.screen-share-intro {
+  line-height: 1.8;
+}
+.screen-share-scope {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f0f7f3;
+  border: 1px solid #dceae1;
+  color: var(--green);
+  border-radius: 9px;
+  padding: 14px;
+  margin: 20px 0;
+}
+.screen-share-scope strong,
+.screen-share-scope span {
+  display: block;
+}
+.screen-share-scope strong {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.screen-share-scope span {
+  font-size: 11px;
+}
+.screen-source-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+.screen-source-item {
+  border: 2px solid #e4e7eb;
+  border-radius: 9px;
+  padding: 7px;
+  background: #fff;
+  text-align: left;
+  color: var(--ink);
+}
+.screen-source-item:hover,
+.screen-source-item.selected {
+  border-color: var(--green);
+}
+.screen-source-item.selected {
+  background: #f5faf7;
+}
+.screen-source-preview {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 180px;
+  background: #edf0f2;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.screen-source-preview img {
+  width: 100%;
+  height: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  display: block;
+}
+.screen-preview-unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #7a8690;
+  font-size: 10px;
+}
+.screen-source-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 4px 0;
+  font-size: 12px;
+}
+.screen-source-check {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #7a8690;
+  background: #edf0f2;
+}
+.selected .screen-source-check {
+  background: var(--green);
+  color: white;
+}
+.screen-source-caption {
+  display: block;
+  font-size: 10px;
+  color: #697581;
+  padding: 3px 4px 7px;
+}
+.screen-share-confirmation,
+.screen-share-empty {
+  color: #697581;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 20px;
+}
