@@ -4,12 +4,13 @@ export function createExamWindowLock(getWindow) {
 
   function release() {
     if (!previous) return;
-    const { window, kiosk, minimizable, movable } = previous;
+    const { window, kiosk, minimizable, movable, alwaysOnTop } = previous;
     previous = null;
     if (window.isDestroyed()) return;
     window.setKiosk(kiosk);
     window.setMinimizable(minimizable);
     window.setMovable(movable);
+    window.setAlwaysOnTop(alwaysOnTop);
   }
 
   return {
@@ -23,11 +24,13 @@ export function createExamWindowLock(getWindow) {
         kiosk: window.isKiosk(),
         minimizable: window.isMinimizable(),
         movable: window.isMovable(),
+        alwaysOnTop: window.isAlwaysOnTop(),
       };
       try {
         window.setKiosk(true);
         window.setMinimizable(false);
         window.setMovable(false);
+        window.setAlwaysOnTop(true, 'screen-saver');
       } catch (error) {
         release();
         throw error;

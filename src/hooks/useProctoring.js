@@ -92,14 +92,14 @@ export default function useProctoring({ active, sessionId, connected, onEvent })
     const onFullscreenChange = () => setFullscreen(Boolean(document.fullscreenElement));
     const clipboard = (event) => blockClipboard(event);
     document.addEventListener('fullscreenchange', onFullscreenChange);
-    for (const type of ['copy', 'cut', 'paste']) document.addEventListener(type, clipboard);
+    for (const type of ['cut', 'paste']) document.addEventListener(type, clipboard);
     const unsubscribeCapture = bridge?.onCaptureRequest(() => {
       void capture();
     });
     const unsubscribeEvents = bridge?.onProctorEvent((event) => receiveEvent(event));
     return () => {
       document.removeEventListener('fullscreenchange', onFullscreenChange);
-      for (const type of ['copy', 'cut', 'paste']) document.removeEventListener(type, clipboard);
+      for (const type of ['cut', 'paste']) document.removeEventListener(type, clipboard);
       unsubscribeCapture?.();
       unsubscribeEvents?.();
     };

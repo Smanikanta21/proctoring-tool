@@ -52,7 +52,7 @@ function createWindow() {
     const key = input.key.toLowerCase();
     const modified = input.control || input.meta;
     if (
-      (modified && ['c', 'x', 'v', 'p', 'r', 'u'].includes(key)) ||
+      (modified && ['x', 'v', 'p', 'r', 'u'].includes(key)) ||
       (modified && input.shift && ['i', 'j', 'c'].includes(key)) ||
       (modified && ['tab', 'h', 'm'].includes(key)) ||
       (input.alt && ['tab', 'escape'].includes(key)) ||
@@ -61,7 +61,7 @@ function createWindow() {
       ['f5', 'f12'].includes(key)
     ) {
       event.preventDefault();
-      monitoring.report(['c', 'x', 'v'].includes(key) ? 'clipboard-blocked' : 'shortcut-blocked');
+      monitoring.report(['x', 'v'].includes(key) ? 'clipboard-blocked' : 'shortcut-blocked');
     }
   });
   examWindow.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
