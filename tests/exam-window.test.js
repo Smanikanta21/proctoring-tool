@@ -3,9 +3,16 @@ import assert from 'node:assert/strict';
 import { createExamWindowLock } from '../app/exam-window.js';
 
 function createWindow(initial = {}) {
-  const state = { kiosk: false, minimizable: true, movable: true, destroyed: false, ...initial };
+  const state = {
+    kiosk: false,
+    minimizable: true,
+    movable: true,
+    alwaysOnTop: false,
+    destroyed: false,
+    ...initial,
+  };
   const window = { isDestroyed: () => state.destroyed };
-  for (const key of ['kiosk', 'minimizable', 'movable']) {
+  for (const key of ['kiosk', 'minimizable', 'movable', 'alwaysOnTop']) {
     const method = key[0].toUpperCase() + key.slice(1);
     window[`is${method}`] = () => state[key];
     window[`set${method}`] = (value) => {
@@ -20,10 +27,22 @@ test('exam lock restricts the native window and restores its original settings e
   const lock = createExamWindowLock(() => window);
   lock.enter();
   lock.enter();
-  assert.deepEqual(state, { kiosk: true, minimizable: false, movable: false, destroyed: false });
+  assert.deepEqual(state, {
+    kiosk: true,
+    minimizable: false,
+    movable: false,
+    alwaysOnTop: true,
+    destroyed: false,
+  });
   lock.release();
   lock.release();
-  assert.deepEqual(state, { kiosk: false, minimizable: true, movable: false, destroyed: false });
+  assert.deepEqual(state, {
+    kiosk: false,
+    minimizable: true,
+    movable: false,
+    alwaysOnTop: false,
+    destroyed: false,
+  });
   lock.enter();
   lock.release();
   assert.equal(state.kiosk, false);

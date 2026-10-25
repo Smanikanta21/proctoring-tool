@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release-dmg:
+    name: Build & Release macOS DMG
+    runs-on: macos-14
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install backend dependencies
+        run: npm --prefix backend ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Package and build DMG
+        run: npm run make
+
+      - name: Generate SHA256 checksums
+        run: |
+          cd out/make
+          shasum -a 256 *.dmg > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Create GitHub Release and Upload DMG
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            out/make/*.dmg
+            out/make/SHA256SUMS.txt
+          generate_release_notes: true
+          draft: false
+          prerelease: false

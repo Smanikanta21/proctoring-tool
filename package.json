@@ -1,7 +1,8 @@
 {
   "name": "athena5",
+  "productName": "Athena",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "main": "app/app.js",
   "scripts": {
@@ -12,8 +13,9 @@
     "test:ui": "npm run build && electron tests/ui-smoke.js",
     "preview": "vite preview",
     "electron": "electron ./app/app.js",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "package": "npm run build && electron-forge package",
+    "make": "npm run build && electron-forge make",
+    "make:mac": "npm run make -- --platform=darwin --arch=arm64"
   },
   "dependencies": {
     "react": "^19.2.8",
